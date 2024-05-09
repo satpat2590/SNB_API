@@ -5,10 +5,7 @@ import apiRouter from './api/index.js';
 const app = express();
 
 // Enable CORS for all routes
-app.use(cors({
-  origin: '*'
-}));
-
+app.use(cors());
 
 // Parse JSON request bodies
 app.use(express.json());
