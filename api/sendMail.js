@@ -13,7 +13,6 @@ const transporter = nodemailer.createTransport({
 const sendMail = async (req, res) => {
   try {
     const { firstName, lastName, email, phoneNumber } = req.body;
-    const attachments = req.files;
 
     // Prepare the email message
     const mailOptions = {
@@ -25,11 +24,7 @@ const sendMail = async (req, res) => {
         Last Name: ${lastName}
         Email: ${email}
         Phone Number: ${phoneNumber}
-      `,
-      attachments: attachments.map((file) => ({
-        filename: file.originalname,
-        content: file.buffer,
-      })),
+      `
     };
 
     // Send the email

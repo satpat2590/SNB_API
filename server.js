@@ -1,7 +1,14 @@
 import express from 'express';
+import cors from 'cors';
 import apiRouter from './api/index.js';
 
 const app = express();
+
+// Enable CORS for all routes
+app.use(cors({
+  origin: '*'
+}));
+
 
 // Parse JSON request bodies
 app.use(express.json());
