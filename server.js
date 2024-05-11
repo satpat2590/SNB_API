@@ -6,9 +6,7 @@ const app = express();
 
 // Enable CORS for all routes
 app.use(cors({
-  origin: ['http://localhost:3000'], // Adjust this if your frontend runs on a different port
-  methods: ['GET', 'POST', 'OPTIONS'], // Ensure OPTIONS is included
-  allowedHeaders: ['Content-Type', 'Authorization']
+  origin: '*'
 }));
 
 // Enable preflight requests for all routes
