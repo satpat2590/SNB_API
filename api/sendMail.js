@@ -9,22 +9,9 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// CORS headers
-const headers = {
-  'Access-Control-Allow-Origin': '*',  // Adjust this to match your frontend's origin for security in production
-  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization, Accept'
-};
 
 // Handle the POST request to send email
 const sendMail = async (req, res) => {
-  // Handle OPTIONS request (CORS preflight)
-  if (req.method === 'OPTIONS') {
-    res.writeHead(200, headers);
-    console.log("Handling preflight to validate CORS")
-    res.end();
-    return;
-  }
   try {
     const { firstName, lastName, email, phoneNumber, message } = req.body;
 
