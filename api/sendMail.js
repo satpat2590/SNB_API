@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer';
 const transporter = nodemailer.createTransport({
   service: 'gmail', // Replace with your email service provider
   auth: {
-    user: 'snbenergy232@gmail.com', // Replace with your email address
+    user: 'snbenergy231@gmail.com', // Replace with your email address
     pass: 'Ningning1231!!', // Replace with your email password
   },
 });
@@ -16,7 +16,7 @@ const sendMail = async (req, res) => {
 
     // Prepare the email message
     const mailOptions = {
-      from: 'snbenergy232@gmail.com', // Replace with your email address
+      from: 'snbenergy231@gmail.com', // Replace with your email address
       to: 'patelsatyam100@gmail.com', // Replace with the recipient email address
       subject: 'New Contact Form Submission',
       text: `
