@@ -1,3 +1,5 @@
+// api/index.js
+
 import express from 'express';
 import sendMail from './sendMail.js';
 

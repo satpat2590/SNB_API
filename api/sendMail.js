@@ -1,4 +1,23 @@
 import nodemailer from 'nodemailer';
+import cors from 'cors';
+
+// CORS Middleware setup for serverless
+const corsHandler = cors({
+  origin: true, // Reflects the request origin, or false if the origin is not allowed
+  optionsSuccessStatus: 200
+});
+
+// Promisify cors middleware to use in async function
+const runMiddleware = (req, res, fn) => {
+  return new Promise((resolve, reject) => {
+      fn(req, res, (result) => {
+          if (result instanceof Error) {
+              return reject(result);
+          }
+          return resolve(result);
+      });
+  });
+};
 
 // Configure the email transporter
 const transporter = nodemailer.createTransport({
@@ -12,6 +31,8 @@ const transporter = nodemailer.createTransport({
 
 // Handle the POST request to send email
 const sendMail = async (req, res) => {
+  await runMiddleware(req, res, corsHandler)
+  
   try {
     const { firstName, lastName, email, phoneNumber, message } = req.body;
 
