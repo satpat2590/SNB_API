@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
 // Handle the POST request to send email
 const sendMail = async (req, res) => {
   try {
-    const { firstName, lastName, email, phoneNumber } = req.body;
+    const { firstName, lastName, email, phoneNumber, message } = req.body;
 
     // Prepare the email message
     const mailOptions = {
@@ -24,6 +24,7 @@ const sendMail = async (req, res) => {
         Last Name: ${lastName}
         Email: ${email}
         Phone Number: ${phoneNumber}
+        Message: ${message}
       `
     };
 
