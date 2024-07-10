@@ -39,7 +39,8 @@ const sendMail = async (req, res) => {
     // Prepare the email message
     const mailOptions = {
       from: 'snbenergy231@gmail.com', // Replace with your email address
-      to: 'patelsatyam100@gmail.com', // Replace with the recipient email address
+      to: `info@snbenergy.com, ${email}`, // Replace with the recipient email address,
+      cc: 'patelsatyam100@gmail.com',
       subject: 'New Contact Form Submission',
       text: `
         First Name: ${firstName}
